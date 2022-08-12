@@ -1,0 +1,21 @@
+{
+    "timestamp": 1660326411095,
+    "hash": "53260b0eb5ca3cf626e0786300172b67",
+    "assets": {
+        "/404/": {
+            "/static/SFMono-Regular-8799e6387338d58f2f137df821c86eb4.woff2": true,
+            "/static/Calibre-Regular-b0d4cbb1201155ddccc21d1b8059a670.woff2": true
+        },
+        "/": {
+            "/static/SFMono-Regular-8799e6387338d58f2f137df821c86eb4.woff2": true,
+            "/static/Calibre-Regular-b0d4cbb1201155ddccc21d1b8059a670.woff2": true,
+            "/static/Calibre-Semibold-94fc73852539d6733dc0d80252c5e3fb.woff2": true,
+            "/static/Calibre-Medium-568dce56f869a519a015d3b69443b067.woff2": true
+        },
+        "/404.html": {
+            "/static/SFMono-Regular-8799e6387338d58f2f137df821c86eb4.woff2": true,
+            "/static/Calibre-Regular-b0d4cbb1201155ddccc21d1b8059a670.woff2": true,
+            "/static/SFMono-Semibold-6e6f6c93f4bdf9cbd090c60e97a017e2.woff2": true
+        }
+    }
+}
