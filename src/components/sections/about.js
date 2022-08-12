@@ -145,11 +145,15 @@ const About = () => {
                             <a target="_blank" href="https://vuejs.org/" rel="noreferrer">
                                 Vue.js
                             </a>
-                            . Currently, I'm using my front-end expertise to integrate these SPA
+                            .
+                        </p>
+
+                        <p>
+                            Currently, I'm using my front-end expertise to integrate these SPA
                             frameworks with Sitecore CMS on the .NET platform. I've been developing
-                            for the web since 2013; starting off with jQuery and Vanilla JS. Now,
-                            I'm focused on building lean, accessible sites using Single-Page
-                            Application frameworks.
+                            for the web since 2013; starting off with jQuery and Vanilla JS. These
+                            days, I'm leveraging my knowlege to build lean, accessible sites using
+                            Single-Page Application frameworks.
                         </p>
 
                         <p>
@@ -159,7 +163,7 @@ const About = () => {
                             <a href="https://www.hsn.com/">(HSN Inc.)</a>, a VR experience startup{' '}
                             <a href="https://www.threshold360.com/">(Threshold 360)</a>, an IT
                             consultancy <a href="https://www.perficient.com/">(Perficient)</a>, and
-                            a major, regional grocery story{' '}
+                            a major, regional grocery store{' '}
                             <a href="https://www.publix.com/">(Publix)</a>.
                         </p>
 

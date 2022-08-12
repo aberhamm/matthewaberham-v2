@@ -13,6 +13,10 @@ const variables = css`
         --color-button-hover: var(--color-blue-02);
         --color-link: var(--color-primary);
 
+        --alpha-input-text-opacity: 1;
+        --alpha-input-bg-opacity: 1;
+        --alpha-input-border-opacity: 1;
+
         --color-black: #121212;
         --color-white: #fcfaf9;
         --color-blue-01: #41b6e6;
@@ -22,18 +26,6 @@ const variables = css`
         --color-slate-03: #8892b0;
         --color-green-01: #7db290;
         --color-green-02: #407d6c;
-
-        --navy: #0a192f;
-        --light-navy: #112240;
-        --lightest-navy: #233554;
-        --navy-shadow: rgba(2, 12, 27, 0.7);
-        --dark-slate: #495670;
-        --slate: #8892b0;
-        --light-slate: #a8b2d1;
-        --lightest-slate: #ccd6f6;
-        --white: #e6f1ff;
-        --pink: #f57dff;
-        --blue: #57cbff;
 
         --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
             sans-serif;
@@ -47,6 +39,18 @@ const variables = css`
         --size-font-xl: 1.25rem;
         --size-font-xxl: 1.375;
         --size-font-heading: 2rem;
+
+        --navy: #0a192f;
+        --light-navy: #112240;
+        --lightest-navy: #233554;
+        --navy-shadow: rgba(2, 12, 27, 0.7);
+        --dark-slate: #495670;
+        --slate: #8892b0;
+        --light-slate: #a8b2d1;
+        --lightest-slate: #ccd6f6;
+        --white: #e6f1ff;
+        --pink: #f57dff;
+        --blue: #57cbff;
 
         --border-radius: 4px;
         --nav-height: 100px;

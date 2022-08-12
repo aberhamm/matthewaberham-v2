@@ -257,9 +257,28 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 0;
   }
 
+  label {
+    color: var(--color-black);
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
   input, textarea {
-    border-radius: 0;
-    outline: 0;
+    display: block;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    border-color: var(--color-black);
+    border-width: 1px;
+    border-radius: 0.5rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding: 0.625rem;
+    width: 100%;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
     &:focus {
       outline: 0;

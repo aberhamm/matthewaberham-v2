@@ -35,40 +35,62 @@ const StyledContactSection = styled.section`
         font-size: clamp(40px, 5vw, 60px);
     }
 
-    .email-link {
-        ${({ theme }) => theme.mixins.bigButton};
-        margin-top: 50px;
+    .contact-form {
+        margin-top: 25px;
+        .submit-button {
+            ${({ theme }) => theme.mixins.smallButton};
+            margin-top: 25px;
+        }
     }
 `;
 
 const Contact = () => {
-  const revealContainer = useRef(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
+    const revealContainer = useRef(null);
+    const prefersReducedMotion = usePrefersReducedMotion();
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
+    useEffect(() => {
+        if (prefersReducedMotion) {
+            return;
+        }
 
-    scroller.reveal(revealContainer.current, srConfig());
-  }, []);
+        scroller.reveal(revealContainer.current, srConfig());
+    }, []);
 
-  return (
-    <StyledContactSection id="contact" ref={revealContainer}>
-      <h2 className="section-heading overline">What’s Next?</h2>
+    return (
+        <StyledContactSection id="contact" ref={revealContainer}>
+            <h2 className="section-heading overline">What’s Next?</h2>
 
-      <h2 className="title">Reach Out and Let's Talk</h2>
+            <h2 className="title">Reach Out and Let's Talk</h2>
 
-      <p>
+            <p>
                 I'm always looking to build my portfolio. Whether you’re looking to collaborate,
-                talk more about my work, or just have a conversation, feel free to get in touch.
-      </p>
+                speak with me about my work, or just have a conversation, feel free to get in touch
+                by submitting the form below.
+            </p>
 
-      <a className="email-link" href={`mailto:${email}`}>
-                Say Hello
-      </a>
-    </StyledContactSection>
-  );
+            <form
+                className="contact-form"
+                name="contact"
+                method="POST"
+                data-netlify-recaptcha="true"
+                data-netlify="true">
+                <p>
+                    <label>Email:</label>
+                    <input type="text" name="name" />
+                </p>
+                <p>
+                    <label>Message:</label>
+                    <textarea name="message"></textarea>
+                </p>
+                <div data-netlify-recaptcha="true"></div>
+                <p>
+                    <button className="submit-button" type="submit">
+                        Send
+                    </button>
+                </p>
+            </form>
+        </StyledContactSection>
+    );
 };
 
 export default Contact;
