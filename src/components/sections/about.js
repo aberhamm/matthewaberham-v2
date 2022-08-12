@@ -105,77 +105,87 @@ const StyledPic = styled.div`
 `;
 
 const About = () => {
-  const revealContainer = useRef(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
+    const revealContainer = useRef(null);
+    const prefersReducedMotion = usePrefersReducedMotion();
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
+    useEffect(() => {
+        if (prefersReducedMotion) {
+            return;
+        }
 
-    scroller.reveal(revealContainer.current, srConfig());
-  }, []);
+        scroller.reveal(revealContainer.current, srConfig());
+    }, []);
 
-  const skills = [
-    'JavaScript (ES6+)',
-    'TypeScript',
-    'React',
-    'Vue.js',
-    'Node.js',
-    '.NET Framework',
-    'Sitecore CMS',
-  ];
+    const skills = [
+        'JavaScript (ES6+)',
+        'TypeScript',
+        'React',
+        'Vue.js',
+        'Node.js',
+        '.NET Framework',
+        'Sitecore CMS',
+    ];
 
-  return (
-    <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="section-heading">About Me</h2>
+    return (
+        <StyledAboutSection id="about" ref={revealContainer}>
+            <h2 className="section-heading">About Me</h2>
 
-      <div className="inner">
-        <StyledText>
-          <div>
-            <p>
+            <div className="inner">
+                <StyledText>
+                    <div>
+                        <p>
                             Hello, my name is Matt! I'm a solutions architect and full-stack
-                            developer with an affinity for front-end technologies. I am currently
-                            working on React and Vue.js applications, integrating with Sitecore CMS
-                            on the .NET platform. I've been developing for the web since 2013;
-                            starting off with jQuery and Vanilla JS. Now, I'm focused on building
-                            lean, accessible sites using Single-Page Application frameworks.
-            </p>
+                            developer with an affinity for front-end technologies. I'm focused on
+                            architecting efficient, accessible, and intuitive web applications that
+                            are built on technologies like{' '}
+                            <a target="_blank" href="https://reactjs.org/" rel="noreferrer">
+                                React
+                            </a>{' '}
+                            and{' '}
+                            <a target="_blank" href="https://vuejs.org/" rel="noreferrer">
+                                Vue.js
+                            </a>
+                            . Currently, I'm using my front-end expertise to integrate these SPA
+                            frameworks with Sitecore CMS on the .NET platform. I've been developing
+                            for the web since 2013; starting off with jQuery and Vanilla JS. Now,
+                            I'm focused on building lean, accessible sites using Single-Page
+                            Application frameworks.
+                        </p>
 
-            <p>
+                        <p>
                             I’ve had the privilege of working with an insurance software startup{' '}
-              <a href="https://www.vipsoftware.com/">(VIP Software)</a>, a
+                            <a href="https://www.vipsoftware.com/">(VIP Software)</a>, a
                             tele/e-commerce corporation{' '}
-              <a href="https://www.hsn.com/">(HSN Inc.)</a>, a VR experience startup{' '}
-              <a href="https://www.threshold360.com/">(Threshold 360)</a>, an IT
+                            <a href="https://www.hsn.com/">(HSN Inc.)</a>, a VR experience startup{' '}
+                            <a href="https://www.threshold360.com/">(Threshold 360)</a>, an IT
                             consultancy <a href="https://www.perficient.com/">(Perficient)</a>, and
                             a major, regional grocery story{' '}
-              <a href="https://www.publix.com/">(Publix)</a>.
-            </p>
+                            <a href="https://www.publix.com/">(Publix)</a>.
+                        </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
-          </div>
+                        <p>Here are a few technologies I’ve been working with recently:</p>
+                    </div>
 
-          <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-          </ul>
-        </StyledText>
+                    <ul className="skills-list">
+                        {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
+                    </ul>
+                </StyledText>
 
-        <StyledPic>
-          <div className="wrapper">
-            <StaticImage
-              className="img"
-              src="../../images/matthew.jpg"
-              width={500}
-              quality={95}
-              formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Headshot"
-            />
-          </div>
-        </StyledPic>
-      </div>
-    </StyledAboutSection>
-  );
+                <StyledPic>
+                    <div className="wrapper">
+                        <StaticImage
+                            className="img"
+                            src="../../images/matthew.jpg"
+                            width={500}
+                            quality={95}
+                            formats={['AUTO', 'WEBP', 'AVIF']}
+                            alt="Headshot"
+                        />
+                    </div>
+                </StyledPic>
+            </div>
+        </StyledAboutSection>
+    );
 };
 
 export default About;
