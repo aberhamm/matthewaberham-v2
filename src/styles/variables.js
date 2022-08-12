@@ -10,7 +10,7 @@ const variables = css`
         --color-font-primary: var(--color-black);
         --color-font-accent: var(--color-primary);
         --color-button: var(--color-black);
-        --color-button-hover: var(--color-white);
+        --color-button-hover: var(--color-blue-02);
         --color-link: var(--color-primary);
 
         --color-black: #121212;

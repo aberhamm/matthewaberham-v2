@@ -16,7 +16,8 @@ const button = css`
     &:hover,
     &:focus,
     &:active {
-        background-color: var(--color-button-hover);
+        border: 1px solid var(--color-button-hover);
+        color: var(--color-button-hover);
         outline: none;
     }
     &:after {
@@ -25,19 +26,19 @@ const button = css`
 `;
 
 const mixins = {
-  flexCenter: css`
+    flexCenter: css`
         display: flex;
         justify-content: center;
         align-items: center;
     `,
 
-  flexBetween: css`
+    flexBetween: css`
         display: flex;
         justify-content: space-between;
         align-items: center;
     `,
 
-  link: css`
+    link: css`
         display: inline-block;
         text-decoration: none;
         text-decoration-skip-ink: auto;
@@ -52,7 +53,7 @@ const mixins = {
         }
     `,
 
-  inlineLink: css`
+    inlineLink: css`
         display: inline-block;
         text-decoration: none;
         text-decoration-skip-ink: auto;
@@ -85,9 +86,9 @@ const mixins = {
         }
     `,
 
-  button,
+    button,
 
-  smallButton: css`
+    smallButton: css`
         color: var(--color-button);
         background-color: transparent;
         border: 1px solid var(--color-button);
@@ -102,6 +103,8 @@ const mixins = {
         &:hover,
         &:focus,
         &:active {
+            border: 1px solid var(--color-button-hover);
+            color: var(--color-button-hover);
             outline: none;
         }
         &:after {
@@ -109,7 +112,7 @@ const mixins = {
         }
     `,
 
-  bigButton: css`
+    bigButton: css`
         color: var(--color-button);
         background-color: transparent;
         border: 1px solid var(--color-button);
@@ -125,6 +128,7 @@ const mixins = {
         &:focus,
         &:active {
             border: 1px solid var(--color-button-hover);
+            color: var(--color-button-hover);
             outline: none;
         }
         &:after {
@@ -132,7 +136,7 @@ const mixins = {
         }
     `,
 
-  boxShadow: css`
+    boxShadow: css`
         box-shadow: 0 10px 30px -15px var(--navy-shadow);
         transition: var(--transition);
 
@@ -142,7 +146,7 @@ const mixins = {
         }
     `,
 
-  fancyList: css`
+    fancyList: css`
         padding: 0;
         margin: 0;
         list-style: none;
@@ -160,7 +164,7 @@ const mixins = {
         }
     `,
 
-  resetList: css`
+    resetList: css`
         list-style: none;
         padding: 0;
         margin: 0;
