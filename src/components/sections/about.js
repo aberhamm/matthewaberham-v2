@@ -133,11 +133,12 @@ const About = () => {
             <div className="inner">
                 <StyledText>
                     <div>
+                        <p>Hello, my name is Matt!</p>
                         <p>
-                            Hello, my name is Matt! I'm a solutions architect and full-stack
-                            developer with an affinity for front-end technologies. I'm focused on
-                            architecting efficient, accessible, and intuitive web applications that
-                            are built on technologies like{' '}
+                            I'm a solutions architect and full-stack developer with a specialization
+                            in front-end technologies. I'm focused on architecting efficient,
+                            accessible, and intuitive web applications that are built on
+                            technologies like{' '}
                             <a target="_blank" href="https://reactjs.org/" rel="noreferrer">
                                 React
                             </a>{' '}
@@ -149,16 +150,21 @@ const About = () => {
                         </p>
 
                         <p>
-                            Currently, I'm using my front-end expertise to integrate these SPA
-                            frameworks with Sitecore CMS on the .NET platform. I've been developing
-                            for the web since 2013; starting off with jQuery and Vanilla JS. These
-                            days, I'm leveraging my knowlege to build lean, accessible sites using
-                            Single-Page Application frameworks.
+                            At the moment, my primary role is bringing front-end infrastructures to
+                            life by leveraging single-page application (SPA) frameworks and
+                            integrating them with Sitecore CMS. Since 2013 I've been developing for
+                            the web. When I first began, I was deeply embedded in the jQuery
+                            ecosystem. These days, I'm persuing a more mindful approach to
+                            development; eschewing the "one size fits all" mentality and
+                            understanding the right tool for the job. Through understanding the
+                            intersectionality between people and technology I can do my part in
+                            reducing bloat and creating an intuitive, accessible web.
                         </p>
 
                         <p>
-                            I’ve had the privilege of working with an insurance software startup{' '}
-                            <a href="https://www.vipsoftware.com/">(VIP Software)</a>, a
+                            Over the years, I’ve had the privilege of working with (and consulting
+                            for) companies of all types. From an insurance software startup{' '}
+                            <a href="https://www.vipsoftware.com/">(VIP Software)</a>, to a
                             tele/e-commerce corporation{' '}
                             <a href="https://www.hsn.com/">(HSN Inc.)</a>, a VR experience startup{' '}
                             <a href="https://www.threshold360.com/">(Threshold 360)</a>, an IT

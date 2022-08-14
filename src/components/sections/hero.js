@@ -60,12 +60,12 @@ const Hero = () => {
     const nodes = [
         <h1 key="0">Hi, I'm Matt.</h1>,
         <h3 key="0" className="big-heading">
-            Basically, I make websites.
+            Basically... I make websites.
         </h3>,
         <>
             <p>
-                With a full commitment to the philosophy of life-long learning, I'm never running
-                out of new things to discover and better ways to solve problems.
+                Committed to life-long learning, always discovering new techniques, and constantly
+                thinking about the right approach to problem solving.
             </p>
         </>,
     ];
