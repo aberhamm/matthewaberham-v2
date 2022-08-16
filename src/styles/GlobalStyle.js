@@ -19,11 +19,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
-  }
-
   /* Provide basic, default focus styles.*/
   :focus {
     outline: 2px dashed var(--color-primary);
@@ -52,17 +47,14 @@ const GlobalStyle = createGlobalStyle`
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
   }
+
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
   }
-  ::-webkit-scrollbar-track {
-    background: var(--navy);
-  }
+
   ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    background-color: var(--color-slate-03);
     border-radius: 10px;
   }
 
@@ -195,7 +187,7 @@ const GlobalStyle = createGlobalStyle`
       width: 300px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background-color: var(--color-black);
 
       @media (max-width: 1080px) {
         width: 200px;
@@ -302,14 +294,6 @@ const GlobalStyle = createGlobalStyle`
     & > a {
       ${({ theme }) => theme.mixins.inlineLink};
     }
-
-    & > code {
-      background-color: var(--light-navy);
-      color: var(--white);
-      font-size: var(--size-font-sm);
-      border-radius: var(--border-radius);
-      padding: 0.3em 0.5em;
-    }
   }
 
   ul {
@@ -347,7 +331,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    background-color: var(--lightest-navy);
+    background-color: var(--color-black);
     height: 1px;
     border-width: 0px;
     border-style: initial;
@@ -374,7 +358,7 @@ const GlobalStyle = createGlobalStyle`
     &:focus,
     &:active {
       background-color: var(--color-primary);
-      color: var(--navy);
+      color: var(--color-black);
       top: 0;
       left: 0;
       width: auto;

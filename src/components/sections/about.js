@@ -60,7 +60,7 @@ const StyledPic = styled.div`
         display: block;
         position: relative;
         width: 100%;
-        border-radius: var(--border-radius);
+        border-radius: var(--size-border-radius);
 
         &:hover,
         &:focus {
@@ -74,7 +74,7 @@ const StyledPic = styled.div`
 
         .img {
             position: relative;
-            border-radius: var(--border-radius);
+            border-radius: var(--size-border-radius);
         }
 
         &:before,
@@ -84,7 +84,7 @@ const StyledPic = styled.div`
             position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: var(--border-radius);
+            border-radius: var(--size-border-radius);
             transition: var(--transition);
         }
 

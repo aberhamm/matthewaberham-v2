@@ -4,7 +4,7 @@ const button = css`
     color: var(--color-button);
     background-color: transparent;
     border: 1px solid var(--color-button);
-    border-radius: var(--border-radius);
+    border-radius: var(--size-border-radius);
     font-size: var(--size-font-xs);
     font-family: var(--font-mono);
     line-height: 1;
@@ -92,7 +92,7 @@ const mixins = {
         color: var(--color-button);
         background-color: transparent;
         border: 1px solid var(--color-button);
-        border-radius: var(--border-radius);
+        border-radius: var(--size-border-radius);
         padding: 0.75rem 1rem;
         font-size: var(--size-font-xs);
         font-family: var(--font-mono);
@@ -116,7 +116,7 @@ const mixins = {
         color: var(--color-button);
         background-color: transparent;
         border: 1px solid var(--color-button);
-        border-radius: var(--border-radius);
+        border-radius: var(--size-border-radius);
         padding: 1.25rem 1.75rem;
         font-size: var(--size-font-sm);
         font-family: var(--font-mono);

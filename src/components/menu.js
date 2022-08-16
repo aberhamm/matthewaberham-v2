@@ -35,7 +35,7 @@ const StyledHamburgerButton = styled.button`
     .ham-box {
         display: inline-block;
         position: relative;
-        width: var(--hamburger-width);
+        width: var(--size-menu-width);
         height: 24px;
     }
 
@@ -43,9 +43,9 @@ const StyledHamburgerButton = styled.button`
         position: absolute;
         top: 50%;
         right: 0;
-        width: var(--hamburger-width);
+        width: var(--size-menu-width);
         height: 2px;
-        border-radius: var(--border-radius);
+        border-radius: var(--size-border-radius);
         background-color: var(--color-primary);
         transition-duration: 0.22s;
         transition-property: transform;
@@ -61,7 +61,7 @@ const StyledHamburgerButton = styled.button`
             position: absolute;
             left: auto;
             right: 0;
-            width: var(--hamburger-width);
+            width: var(--size-menu-width);
             height: 2px;
             border-radius: 4px;
             background-color: var(--color-primary);
@@ -74,14 +74,16 @@ const StyledHamburgerButton = styled.button`
             top: ${props => (props.menuOpen ? `0` : `-10px`)};
             opacity: ${props => (props.menuOpen ? 0 : 1)};
             transition: ${({ menuOpen }) =>
-    menuOpen ? 'var(--ham-before-active)' : 'var(--ham-before)'};
+                menuOpen
+                    ? 'var(--transition-menu-before-active)'
+                    : 'var(--transition-menu-before)'};
         }
         &:after {
             width: ${props => (props.menuOpen ? `100%` : `80%`)};
             bottom: ${props => (props.menuOpen ? `0` : `-10px`)};
             transform: rotate(${props => (props.menuOpen ? `-90deg` : `0`)});
             transition: ${({ menuOpen }) =>
-    menuOpen ? 'var(--ham-after-active)' : 'var(--ham-after)'};
+                menuOpen ? 'var(--transition-menu-after-active)' : 'var(--transition-menu-after)'};
         }
     }
 `;
@@ -99,8 +101,8 @@ const StyledSidebar = styled.aside`
         width: min(75vw, 400px);
         height: 100vh;
         outline: 0;
-        background-color: var(--light-navy);
-        box-shadow: -10px 0px 30px -15px var(--navy-shadow);
+        background-color: var(--color-body-background);
+        box-shadow: -10px 0px 30px -15px var(--color-black);
         z-index: 9;
         transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
         visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
@@ -111,7 +113,7 @@ const StyledSidebar = styled.aside`
         ${({ theme }) => theme.mixins.flexBetween};
         width: 100%;
         flex-direction: column;
-        color: var(--lightest-slate);
+        color: var(--color-vlack);
         font-family: var(--font-mono);
         text-align: center;
     }
@@ -131,14 +133,6 @@ const StyledSidebar = styled.aside`
             @media (max-width: 600px) {
                 margin: 0 auto 10px;
             }
-
-            &:before {
-                content: '0' counter(item) '.';
-                display: block;
-                margin-bottom: 5px;
-                color: var(--color-primary);
-                font-size: var(--size-font-sm);
-            }
         }
 
         a {
@@ -157,127 +151,127 @@ const StyledSidebar = styled.aside`
 `;
 
 const Menu = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+    const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const buttonRef = useRef(null);
-  const navRef = useRef(null);
+    const buttonRef = useRef(null);
+    const navRef = useRef(null);
 
-  let menuFocusables;
-  let firstFocusableEl;
-  let lastFocusableEl;
+    let menuFocusables;
+    let firstFocusableEl;
+    let lastFocusableEl;
 
-  const setFocusables = () => {
-    menuFocusables = [buttonRef.current, ...Array.from(navRef.current.querySelectorAll('a'))];
-    firstFocusableEl = menuFocusables[0];
-    lastFocusableEl = menuFocusables[menuFocusables.length - 1];
-  };
-
-  const handleBackwardTab = e => {
-    if (document.activeElement === firstFocusableEl) {
-      e.preventDefault();
-      lastFocusableEl.focus();
-    }
-  };
-
-  const handleForwardTab = e => {
-    if (document.activeElement === lastFocusableEl) {
-      e.preventDefault();
-      firstFocusableEl.focus();
-    }
-  };
-
-  const onKeyDown = e => {
-    switch (e.key) {
-      case KEY_CODES.ESCAPE:
-      case KEY_CODES.ESCAPE_IE11: {
-        setMenuOpen(false);
-        break;
-      }
-
-      case KEY_CODES.TAB: {
-        if (menuFocusables && menuFocusables.length === 1) {
-          e.preventDefault();
-          break;
-        }
-        if (e.shiftKey) {
-          handleBackwardTab(e);
-        } else {
-          handleForwardTab(e);
-        }
-        break;
-      }
-
-      default: {
-        break;
-      }
-    }
-  };
-
-  const onResize = e => {
-    if (e.currentTarget.innerWidth > 768) {
-      setMenuOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('keydown', onKeyDown);
-    window.addEventListener('resize', onResize);
-
-    setFocusables();
-
-    return () => {
-      document.removeEventListener('keydown', onKeyDown);
-      window.removeEventListener('resize', onResize);
+    const setFocusables = () => {
+        menuFocusables = [buttonRef.current, ...Array.from(navRef.current.querySelectorAll('a'))];
+        firstFocusableEl = menuFocusables[0];
+        lastFocusableEl = menuFocusables[menuFocusables.length - 1];
     };
-  }, []);
 
-  const wrapperRef = useRef();
-  useOnClickOutside(wrapperRef, () => setMenuOpen(false));
+    const handleBackwardTab = e => {
+        if (document.activeElement === firstFocusableEl) {
+            e.preventDefault();
+            lastFocusableEl.focus();
+        }
+    };
 
-  return (
-    <StyledMenu>
-      <Helmet>
-        <body className={menuOpen ? 'blur' : ''} />
-      </Helmet>
+    const handleForwardTab = e => {
+        if (document.activeElement === lastFocusableEl) {
+            e.preventDefault();
+            firstFocusableEl.focus();
+        }
+    };
 
-      <div ref={wrapperRef}>
-        <StyledHamburgerButton
-          onClick={toggleMenu}
-          menuOpen={menuOpen}
-          ref={buttonRef}
-          aria-label="Menu">
-          <div className="ham-box">
-            <div className="ham-box-inner" />
-          </div>
-        </StyledHamburgerButton>
+    const onKeyDown = e => {
+        switch (e.key) {
+            case KEY_CODES.ESCAPE:
+            case KEY_CODES.ESCAPE_IE11: {
+                setMenuOpen(false);
+                break;
+            }
 
-        <StyledSidebar
-          menuOpen={menuOpen}
-          aria-hidden={!menuOpen}
-          tabIndex={menuOpen ? 1 : -1}>
-          <nav ref={navRef}>
-            {navLinks && (
-              <ol>
-                {navLinks.map(({ url, name }, i) => (
-                  <li key={i}>
-                    <Link to={url} onClick={() => setMenuOpen(false)}>
-                      {name}
-                    </Link>
-                  </li>
-                ))}
-              </ol>
-            )}
+            case KEY_CODES.TAB: {
+                if (menuFocusables && menuFocusables.length === 1) {
+                    e.preventDefault();
+                    break;
+                }
+                if (e.shiftKey) {
+                    handleBackwardTab(e);
+                } else {
+                    handleForwardTab(e);
+                }
+                break;
+            }
 
-            <a href="/Aberham-Matthew-Resume.pdf" className="resume-link">
+            default: {
+                break;
+            }
+        }
+    };
+
+    const onResize = e => {
+        if (e.currentTarget.innerWidth > 768) {
+            setMenuOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('keydown', onKeyDown);
+        window.addEventListener('resize', onResize);
+
+        setFocusables();
+
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+            window.removeEventListener('resize', onResize);
+        };
+    }, []);
+
+    const wrapperRef = useRef();
+    useOnClickOutside(wrapperRef, () => setMenuOpen(false));
+
+    return (
+        <StyledMenu>
+            <Helmet>
+                <body className={menuOpen ? 'blur' : ''} />
+            </Helmet>
+
+            <div ref={wrapperRef}>
+                <StyledHamburgerButton
+                    onClick={toggleMenu}
+                    menuOpen={menuOpen}
+                    ref={buttonRef}
+                    aria-label="Menu">
+                    <div className="ham-box">
+                        <div className="ham-box-inner" />
+                    </div>
+                </StyledHamburgerButton>
+
+                <StyledSidebar
+                    menuOpen={menuOpen}
+                    aria-hidden={!menuOpen}
+                    tabIndex={menuOpen ? 1 : -1}>
+                    <nav ref={navRef}>
+                        {navLinks && (
+                            <ol>
+                                {navLinks.map(({ url, name }, i) => (
+                                    <li key={i}>
+                                        <Link to={url} onClick={() => setMenuOpen(false)}>
+                                            {name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ol>
+                        )}
+
+                        <a href="/Aberham-Matthew-Resume.pdf" className="resume-link">
                             Resume
-            </a>
-          </nav>
-        </StyledSidebar>
-      </div>
-    </StyledMenu>
-  );
+                        </a>
+                    </nav>
+                </StyledSidebar>
+            </div>
+        </StyledMenu>
+    );
 };
 
 export default Menu;
