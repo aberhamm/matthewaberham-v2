@@ -40,7 +40,7 @@ const StyledSocialLinks = styled.div`
     }
 `;
 
-const StyledCredit = styled.div`
+const StyledAnnotation = styled.div`
     color: var(--light-slate);
     font-family: var(--font-mono);
     font-size: var(--size-font-xxs);
@@ -67,33 +67,31 @@ const StyledCredit = styled.div`
     }
 `;
 
-const Footer = () => {
-    return (
-        <StyledFooter>
-            <StyledSocialLinks>
-                <ul>
-                    {socialMedia &&
-                        socialMedia.map(({ name, url }, i) => (
-                            <li key={i}>
-                                <a href={url} aria-label={name}>
-                                    <Icon name={name} />
-                                </a>
-                            </li>
-                        ))}
-                </ul>
-            </StyledSocialLinks>
+const Footer = () => (
+  <StyledFooter>
+    <StyledSocialLinks>
+      <ul>
+        {socialMedia &&
+                    socialMedia.map(({ name, url }, i) => (
+                      <li key={i}>
+                        <a href={url} aria-label={name}>
+                          <Icon name={name} />
+                        </a>
+                      </li>
+                    ))}
+      </ul>
+    </StyledSocialLinks>
 
-            <StyledCredit tabindex="-1">
-                <a href="https://github.com/aberhamm/matthewaberham-v2">
-                    <div>This site is hosted on Netlify; built using React and Gatsby.</div>
-                </a>
-            </StyledCredit>
-        </StyledFooter>
-    );
-};
+    <StyledAnnotation tabindex="-1">
+      <a href="https://github.com/aberhamm/matthewaberham-v2">
+        <div>This site is hosted on Netlify; built using React and Gatsby.</div>
+      </a>
+    </StyledAnnotation>
+  </StyledFooter>
+);
 
 Footer.propTypes = {
-    githubInfo: PropTypes.object,
+  githubInfo: PropTypes.object,
 };
 
 export default Footer;

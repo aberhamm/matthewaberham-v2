@@ -12,7 +12,7 @@ const variables = css`
         --color-font-accent: var(--color-primary);
         --color-button: var(--color-black);
         --color-button-hover: var(--color-blue-02);
-        --color-link: var(--color-primary);
+        --color-link: var(--color-blue-03);
 
         --alpha-input-text-opacity: 1;
         --alpha-input-bg-opacity: 1;
@@ -21,7 +21,8 @@ const variables = css`
         --color-black: #121212;
         --color-white: #fcfaf9;
         --color-blue-01: #41b6e6;
-        --color-blue-02: #004bff;
+        --color-blue-02: #096ffa;
+        --color-blue-03: #004bff;
         --color-slate-01: #ccd6f6;
         --color-slate-02: #a8b2d1;
         --color-slate-03: #8892b0;

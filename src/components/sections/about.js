@@ -105,97 +105,85 @@ const StyledPic = styled.div`
 `;
 
 const About = () => {
-    const revealContainer = useRef(null);
-    const prefersReducedMotion = usePrefersReducedMotion();
+  const revealContainer = useRef(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
-    useEffect(() => {
-        if (prefersReducedMotion) {
-            return;
-        }
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
 
-        scroller.reveal(revealContainer.current, srConfig());
-    }, []);
+    scroller.reveal(revealContainer.current, srConfig());
+  }, []);
 
-    const skills = [
-        'JavaScript (ES6+)',
-        'TypeScript',
-        'React',
-        'Vue.js',
-        'Node.js',
-        '.NET Framework',
-        'Sitecore CMS',
-    ];
+  const skills = [
+    'JavaScript (ES6+)',
+    'TypeScript',
+    'React',
+    'Vue.js',
+    'Node.js',
+    '.NET Framework',
+    'Sitecore CMS',
+  ];
 
-    return (
-        <StyledAboutSection id="about" ref={revealContainer}>
-            <h2 className="section-heading">About Me</h2>
+  return (
+    <StyledAboutSection id="about" ref={revealContainer}>
+      <h2 className="section-heading">About Me</h2>
 
-            <div className="inner">
-                <StyledText>
-                    <div>
-                        <p>Hello, my name is Matt!</p>
-                        <p>
+      <div className="inner">
+        <StyledText>
+          <div>
+            <p>Hello, my name is Matt!</p>
+            <p>
                             I'm a solutions architect and full-stack developer with a specialization
                             in front-end technologies. I'm focused on architecting efficient,
                             accessible, and intuitive web applications that are built on
                             technologies like{' '}
-                            <a target="_blank" href="https://reactjs.org/" rel="noreferrer">
+              <a target="_blank" href="https://reactjs.org/" rel="noreferrer">
                                 React
-                            </a>{' '}
+              </a>{' '}
                             and{' '}
-                            <a target="_blank" href="https://vuejs.org/" rel="noreferrer">
+              <a target="_blank" href="https://vuejs.org/" rel="noreferrer">
                                 Vue.js
-                            </a>
+              </a>
                             .
-                        </p>
+            </p>
 
-                        <p>
+            <p>
                             At the moment, my primary role is bringing front-end infrastructures to
                             life by leveraging single-page application (SPA) frameworks and
-                            integrating them with Sitecore CMS. Since 2013 I've been developing for
+                            integrating them with Sitecore CMS. Since 2013, I've been developing for
                             the web. When I first began, I was deeply embedded in the jQuery
                             ecosystem. These days, I'm persuing a more mindful approach to
-                            development; eschewing the "one size fits all" mentality and
-                            understanding the right tool for the job. Through understanding the
+                            development; eschewing the &ldquo;one size fits all&rdquo; mentality and
+                            using the right tool for the job. Through understanding the
                             intersectionality between people and technology I can do my part in
                             reducing bloat and creating an intuitive, accessible web.
-                        </p>
+            </p>
 
-                        <p>
-                            Over the years, I’ve had the privilege of working with (and consulting
-                            for) companies of all types. From an insurance software startup{' '}
-                            <a href="https://www.vipsoftware.com/">(VIP Software)</a>, to a
-                            tele/e-commerce corporation{' '}
-                            <a href="https://www.hsn.com/">(HSN Inc.)</a>, a VR experience startup{' '}
-                            <a href="https://www.threshold360.com/">(Threshold 360)</a>, an IT
-                            consultancy <a href="https://www.perficient.com/">(Perficient)</a>, and
-                            a major, regional grocery store{' '}
-                            <a href="https://www.publix.com/">(Publix)</a>.
-                        </p>
+            <p>Here are a few technologies I’ve been working with recently:</p>
+          </div>
 
-                        <p>Here are a few technologies I’ve been working with recently:</p>
-                    </div>
+          <ul className="skills-list">
+            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
+          </ul>
+        </StyledText>
 
-                    <ul className="skills-list">
-                        {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-                    </ul>
-                </StyledText>
-
-                <StyledPic>
-                    <div className="wrapper">
-                        <StaticImage
-                            className="img"
-                            src="../../images/matthew.jpg"
-                            width={500}
-                            quality={95}
-                            formats={['AUTO', 'WEBP', 'AVIF']}
-                            alt="Headshot"
-                        />
-                    </div>
-                </StyledPic>
-            </div>
-        </StyledAboutSection>
-    );
+        <StyledPic>
+          <div className="wrapper">
+            <StaticImage
+              className="img"
+              src="../../images/matthew.jpg"
+              width={500}
+              quality={95}
+              formats={['AUTO', 'WEBP', 'AVIF']}
+              alt="Headshot"
+            />
+          </div>
+        </StyledPic>
+      </div>
+    </StyledAboutSection>
+  );
 };
 
 export default About;
