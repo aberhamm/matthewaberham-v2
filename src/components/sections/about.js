@@ -139,26 +139,38 @@ const About = () => {
                             in front-end technologies. I'm focused on architecting efficient,
                             accessible, and intuitive web applications that are built on
                             technologies like{' '}
-              <a target="_blank" href="https://reactjs.org/" rel="noreferrer">
+              <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
                                 React
               </a>{' '}
                             and{' '}
-              <a target="_blank" href="https://vuejs.org/" rel="noreferrer">
+              <a href="https://vuejs.org/" target="_blank" rel="noreferrer">
                                 Vue.js
               </a>
                             .
             </p>
 
             <p>
-                            At the moment, my primary role is bringing front-end infrastructures to
-                            life by leveraging single-page application (SPA) frameworks and
-                            integrating them with Sitecore CMS. Since 2013, I've been developing for
-                            the web. When I first began, I was deeply embedded in the jQuery
-                            ecosystem. These days, I'm persuing a more mindful approach to
-                            development; eschewing the &ldquo;one size fits all&rdquo; mentality and
-                            using the right tool for the job. Through understanding the
-                            intersectionality between people and technology I can do my part in
-                            reducing bloat and creating an intuitive, accessible web.
+                            At the moment, my primary role is bringing front-end experiences to
+                            life; leveraging single-page application (SPA) frameworks and building
+                            them on a{' '}
+              <a href="https://www.sitecore.com/" target="_blank" rel="noreferrer">
+                                Sitecore CMS
+              </a>{' '}
+                            and{' '}
+              <a
+                href="https://dotnet.microsoft.com/en-us/apps/aspnet/mvc"
+                target="_blank"
+                rel="noreferrer"
+              >
+                                .NET MVC
+              </a>
+                            back-end. Since 2013, I've been developing applications for the web.
+                            When I first began, I was deeply embedded in the jQuery ecosystem. These
+                            days, I'm persuing a more mindful approach to development; eschewing the
+                            &ldquo;one size fits all&rdquo; mentality and using the right tool for
+                            the job. Through understanding the intersectionality between people and
+                            technology I can do my part in reducing bloat and creating an intuitive,
+                            accessible web.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
