@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { srConfig, email } from '@config';
 import scroller from '@utils/scroller';
+import { navigate } from 'gatsby-link';
+import { encode } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledContactSection = styled.section`
@@ -45,52 +46,101 @@ const StyledContactSection = styled.section`
 `;
 
 const Contact = () => {
-    const revealContainer = useRef(null);
-    const prefersReducedMotion = usePrefersReducedMotion();
+  const [formData, setFormData] = useState({});
+  const revealContainer = useRef(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
-    useEffect(() => {
-        if (prefersReducedMotion) {
-            return;
+  useEffect(() => {
+    !prefersReducedMotion && scroller.reveal(revealContainer.current);
+  }, []);
+
+  const handleChange = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...formData,
+      }),
+    })
+      .then(async response => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const data = isJson ? await response.json() : null;
+
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
         }
 
-        scroller.reveal(revealContainer.current, srConfig());
-    }, []);
+        navigate(form.getAttribute('action'));
+      })
+      .catch(error => alert(error));
+  };
 
-    return (
-        <StyledContactSection id="contact" ref={revealContainer}>
-            <h2 className="section-heading overline">What’s Next?</h2>
+  return (
+    <StyledContactSection id="contact" ref={revealContainer}>
+      <h2 className="section-heading overline">What’s Next?</h2>
 
-            <h2 className="title">Reach Out and Let's Talk</h2>
+      <h2 className="title">Reach Out and Let's Talk</h2>
 
-            <p>
+      <p>
                 I'm always looking to build my portfolio. Whether you’re looking to collaborate,
                 speak with me about my work, or just have a conversation, feel free to get in touch
                 by submitting the form below.
-            </p>
-
-            <form
-                className="contact-form"
-                name="contact"
-                method="POST"
-                data-netlify-recaptcha="true"
-                data-netlify="true">
-                <p>
-                    <label>Email:</label>
-                    <input type="text" name="name" />
-                </p>
-                <p>
-                    <label>Message:</label>
-                    <textarea name="message"></textarea>
-                </p>
-                <div data-netlify-recaptcha="true"></div>
-                <p>
-                    <button className="submit-button" type="submit">
+      </p>
+      <form
+        name="contact"
+        className="contact-form"
+        method="post"
+        action="/contact/success"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+                        Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+                        Your name:
+            <br />
+            <input type="text" name="name" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+                        Your email:
+            <br />
+            <input type="email" name="email" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+                        Message:
+            <br />
+            <textarea name="message" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <button className="submit-button" type="submit">
                         Send
-                    </button>
-                </p>
-            </form>
-        </StyledContactSection>
-    );
+          </button>
+        </p>
+      </form>
+    </StyledContactSection>
+  );
 };
 
 export default Contact;

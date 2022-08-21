@@ -46,7 +46,7 @@ const StyledHamburgerButton = styled.button`
         width: var(--size-menu-width);
         height: 2px;
         border-radius: var(--size-border-radius);
-        background-color: var(--color-primary);
+        background-color: var(--color-black);
         transition-duration: 0.22s;
         transition-property: transform;
         transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
@@ -64,7 +64,7 @@ const StyledHamburgerButton = styled.button`
             width: var(--size-menu-width);
             height: 2px;
             border-radius: 4px;
-            background-color: var(--color-primary);
+            background-color: var(--color-black);
             transition-timing-function: ease;
             transition-duration: 0.15s;
             transition-property: transform;

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
-import { srConfig } from '@config';
 import scroller from '@utils/scroller';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -94,7 +93,7 @@ const Jobs = () => {
       return;
     }
 
-    scroller.reveal(revealContainer.current, srConfig());
+    scroller.reveal(revealContainer.current);
   }, []);
 
   return (

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import { srConfig } from '@config';
 import scroller from '@utils/scroller';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -67,8 +66,8 @@ const StyledPic = styled.div`
             outline: 0;
 
             &:after {
-                top: 15px;
-                left: 15px;
+                top: 10px;
+                left: 10px;
             }
         }
 
@@ -91,14 +90,14 @@ const StyledPic = styled.div`
         &:before {
             top: 0;
             left: 0;
-            background-color: var(--navy);
+            background-color: var(--color-white);
             mix-blend-mode: screen;
         }
 
         &:after {
-            border: 2px solid var(--color-primary);
-            top: 20px;
-            left: 20px;
+            border: 1px solid var(--color-primary);
+            top: 15px;
+            left: 15px;
             z-index: -1;
         }
     }
@@ -113,7 +112,7 @@ const About = () => {
       return;
     }
 
-    scroller.reveal(revealContainer.current, srConfig());
+    scroller.reveal(revealContainer.current);
   }, []);
 
   const skills = [
@@ -148,7 +147,6 @@ const About = () => {
               </a>
                             .
             </p>
-
             <p>
                             At the moment, my primary role is bringing front-end experiences to
                             life; leveraging single-page application (SPA) frameworks and building
@@ -163,10 +161,15 @@ const About = () => {
                 rel="noreferrer"
               >
                                 .NET MVC
-              </a>
-                            back-end. Since 2013, I've been developing applications for the web.
-                            When I first began, I was deeply embedded in the jQuery ecosystem. These
-                            days, I'm persuing a more mindful approach to development; eschewing the
+              </a>{' '}
+                            back-end.{' '}
+            </p>
+
+            <p>
+              {' '}
+                            Since 2013, I've been developing applications for the web. When I first
+                            began, I was deeply embedded in the jQuery ecosystem. These days, I'm
+                            persuing a more mindful approach to development; eschewing the
                             &ldquo;one size fits all&rdquo; mentality and using the right tool for
                             the job. Through understanding the intersectionality between people and
                             technology I can do my part in reducing bloat and creating an intuitive,

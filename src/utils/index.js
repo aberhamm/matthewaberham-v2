@@ -22,3 +22,8 @@ export const KEY_CODES = {
   SPACE_IE11: 'Spacebar',
   ENTER: 'Enter',
 };
+
+export const encode = data =>
+  Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
