@@ -45,51 +45,52 @@ const StyledHeroSection = styled.section`
 `;
 
 const Hero = () => {
-    const [isMounted, setIsMounted] = useState(false);
-    const prefersReducedMotion = usePrefersReducedMotion();
+  const [isMounted, setIsMounted] = useState(false);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
-    useEffect(() => {
-        if (prefersReducedMotion) {
-            return;
-        }
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
 
-        const timeout = setTimeout(() => setIsMounted(true), navDelay);
-        return () => clearTimeout(timeout);
-    }, []);
+    const timeout = setTimeout(() => setIsMounted(true), navDelay);
+    return () => clearTimeout(timeout);
+  }, []);
 
-    const nodes = [
-        <h1 key="0">Hi, I'm Matt.</h1>,
-        <h3 key="0" className="big-heading">
+  const nodes = [
+    <h1 key="0">Hi, I'm Matt.</h1>,
+    <h3 key="0" className="big-heading">
             Basically... I make websites.
-        </h3>,
-        <>
-            <p>
-                Committed to life-long learning, always discovering new techniques, and constantly
-                thinking about the right approach to problem solving.
-            </p>
-        </>,
-    ];
+    </h3>,
+    <>
+      <p>
+                The <b>&ldquo;right&rdquo;</b> way to solve a problem is constantly evolving &#8212;
+                there are always new techniques to discover and new voices to learn from. Taking
+                pride in my work has committed me to the philosophy of life-long learning.
+      </p>
+    </>,
+  ];
 
-    return (
-        <StyledHeroSection>
-            {prefersReducedMotion ? (
-                <>
-                    {nodes.map((item, i) => (
-                        <div key={i}>{item}</div>
-                    ))}
-                </>
-            ) : (
-                <TransitionGroup component={null}>
-                    {isMounted &&
+  return (
+    <StyledHeroSection>
+      {prefersReducedMotion ? (
+        <>
+          {nodes.map((item, i) => (
+            <div key={i}>{item}</div>
+          ))}
+        </>
+      ) : (
+        <TransitionGroup component={null}>
+          {isMounted &&
                         nodes.map((item, i) => (
-                            <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
-                                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-                            </CSSTransition>
+                          <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
+                            <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+                          </CSSTransition>
                         ))}
-                </TransitionGroup>
-            )}
-        </StyledHeroSection>
-    );
+        </TransitionGroup>
+      )}
+    </StyledHeroSection>
+  );
 };
 
 export default Hero;
