@@ -1,0 +1,22 @@
+{
+  "name": "matthewaberham-v2",
+  "version": "1.0.0",
+  "description": "1. Install the Gatsby CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aberhamm/matthewaberham-v2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aberhamm/matthewaberham-v2/issues"
+  },
+  "homepage": "https://github.com/aberhamm/matthewaberham-v2#readme",
+  "devDependencies": {
+    "husky": "^8.0.1"
+  }
+}
