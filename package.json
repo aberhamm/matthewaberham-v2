@@ -34,6 +34,7 @@
     },
     "dependencies": {
         "babel-plugin-styled-components": "^1.13.3",
+        "babel-preset-gatsby": "^1.14.0",
         "gatsby": "^4.21.1",
         "gatsby-plugin-google-analytics": "^4.21.0",
         "gatsby-plugin-image": "^2.21.0",
@@ -65,7 +66,6 @@
         "@babel/preset-react": "^7.18.6",
         "@upstatement/eslint-config": "^1.0.1",
         "@upstatement/prettier-config": "^1.0.0",
-        "babel-preset-gatsby": "^1.14.0",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-jsx-a11y": "^6.6.1",
