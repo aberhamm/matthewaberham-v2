@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import scroller from '@utils/scroller';
 import { usePrefersReducedMotion } from '@hooks';
@@ -18,7 +18,7 @@ const StyledAboutSection = styled.section`
     }
 `;
 const StyledText = styled.div`
-    ul.skills-list {
+    ul {
         display: grid;
         grid-template-columns: repeat(2, minmax(140px, 200px));
         grid-gap: 0 10px;
@@ -103,102 +103,45 @@ const StyledPic = styled.div`
     }
 `;
 
-const About = () => {
-  const revealContainer = useRef(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
+const About = ({ title, content, image }) => {
+    const revealContainer = useRef(null);
+    const prefersReducedMotion = usePrefersReducedMotion();
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
+    useEffect(() => {
+        if (prefersReducedMotion) {
+            return;
+        }
 
-    scroller.reveal(revealContainer.current);
-  }, []);
+        scroller.reveal(revealContainer.current);
+    }, []);
 
-  const skills = [
-    'JavaScript (ES6+)',
-    'TypeScript',
-    'React',
-    'Vue.js',
-    'Node.js',
-    '.NET Framework',
-    'Sitecore CMS',
-  ];
+    return (
+        <StyledAboutSection id="about" ref={revealContainer}>
+            <h2 className="section-heading">{title}</h2>
 
-  return (
-    <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="section-heading">About Me</h2>
+            <div className="inner">
+                <StyledText>
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: content.data.childMarkdownRemark.html,
+                        }}></div>
+                </StyledText>
 
-      <div className="inner">
-        <StyledText>
-          <div>
-            <p>Hello, my name is Matt!</p>
-            <p>
-                            I'm a solutions architect and full-stack developer with a specialization
-                            in front-end technologies. I'm focused on architecting efficient,
-                            accessible, and intuitive web applications that are built on
-                            technologies like{' '}
-              <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
-                                React
-              </a>{' '}
-                            and{' '}
-              <a href="https://vuejs.org/" target="_blank" rel="noreferrer">
-                                Vue.js
-              </a>
-                            .
-            </p>
-            <p>
-                            At the moment, my primary role is bringing front-end experiences to
-                            life; leveraging single-page application (SPA) frameworks and building
-                            them on a{' '}
-              <a href="https://www.sitecore.com/" target="_blank" rel="noreferrer">
-                                Sitecore CMS
-              </a>{' '}
-                            and{' '}
-              <a
-                href="https://dotnet.microsoft.com/en-us/apps/aspnet/mvc"
-                target="_blank"
-                rel="noreferrer"
-              >
-                                .NET MVC
-              </a>{' '}
-                            back-end.{' '}
-            </p>
-
-            <p>
-              {' '}
-                            Since 2013, I've been developing applications for the web. When I first
-                            began, I was deeply embedded in the jQuery ecosystem. These days, I'm
-                            persuing a more mindful approach to development; eschewing the
-                            &ldquo;one size fits all&rdquo; mentality and using the right tool for
-                            the job. Through understanding the intersectionality between people and
-                            technology I can do my part in reducing bloat and creating an intuitive,
-                            accessible web.
-            </p>
-
-            <p>Here are a few technologies I’ve been working with recently:</p>
-          </div>
-
-          <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-          </ul>
-        </StyledText>
-
-        <StyledPic>
-          <div className="wrapper">
-            <StaticImage
-              className="img"
-              src="../../images/matthew.jpg"
-              width={500}
-              quality={95}
-              formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Headshot"
-            />
-          </div>
-        </StyledPic>
-      </div>
-    </StyledAboutSection>
-  );
+                <StyledPic>
+                    <div className="wrapper">
+                        <GatsbyImage
+                            className="img"
+                            image={image.localFile.childImageSharp.gatsbyImageData}
+                            width={500}
+                            quality={95}
+                            formats={['AUTO', 'WEBP', 'AVIF']}
+                            alt="Headshot"
+                        />
+                    </div>
+                </StyledPic>
+            </div>
+        </StyledAboutSection>
+    );
 };
 
 export default About;
