@@ -129,9 +129,9 @@ const About = ({ title, content, image }) => {
 
                 <StyledPic>
                     <div className="wrapper">
-                        <GatsbyImage
+                        <image
                             className="img"
-                            image={image.localFile.childImageSharp.gatsbyImageData}
+                            image={image.localFile.publicUrl}
                             width={500}
                             quality={95}
                             formats={['AUTO', 'WEBP', 'AVIF']}
