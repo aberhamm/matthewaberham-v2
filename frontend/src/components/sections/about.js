@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import scroller from '@utils/scroller';
 import { usePrefersReducedMotion } from '@hooks';
@@ -129,12 +129,10 @@ const About = ({ title, content, image }) => {
 
                 <StyledPic>
                     <div className="wrapper">
-                        <image
+                        <img
                             className="img"
-                            image={image.localFile.publicUrl}
+                            src={image.localFile.publicURL}
                             width={500}
-                            quality={95}
-                            formats={['AUTO', 'WEBP', 'AVIF']}
                             alt="Headshot"
                         />
                     </div>

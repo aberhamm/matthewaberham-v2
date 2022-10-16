@@ -23,10 +23,9 @@ const IndexPage = ({ location }) => {
                     }
                 }
                 image {
+                    url
                     localFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
+                        publicURL
                     }
                 }
             }
