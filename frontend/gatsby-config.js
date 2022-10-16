@@ -24,7 +24,7 @@ module.exports = {
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-robots-txt`,
         // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-offline
-        // `gatsby-plugin-offline`,
+        `gatsby-plugin-offline`,
         {
             // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-manifest
             resolve: `gatsby-plugin-manifest`,
