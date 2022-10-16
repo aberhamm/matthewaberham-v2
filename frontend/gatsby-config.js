@@ -5,6 +5,14 @@ require('dotenv').config({
 });
 
 module.exports = {
+    siteMetadata: {
+        title: 'Matthew Aberham - Solutions Architect and Web Developer',
+        description:
+            'Helping people and brands reach their goals by designing & building user-centric digital products and interactive experiences',
+        siteUrl: 'https://matthewaberham.com', // No trailing slash allowed!
+        image: '/og.png', // Path to your image you placed in the 'static' folder
+        twitterUsername: '@aberhamm',
+    },
     plugins: [
         `gatsby-plugin-preload-fonts`,
         // https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/
