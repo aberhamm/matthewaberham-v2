@@ -169,7 +169,7 @@ const About = () => {
               {' '}
                             Since 2013, I've been developing applications for the web. When I first
                             began, I was deeply embedded in the jQuery ecosystem. These days, I'm
-                            persuing a more mindful approach to development; eschewing the
+                            pursuing a more mindful approach to development; eschewing the
                             &ldquo;one size fits all&rdquo; mentality and using the right tool for
                             the job. Through understanding the intersectionality between people and
                             technology I can do my part in reducing bloat and creating an intuitive,
