@@ -9,7 +9,9 @@ import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
 
 const StyledHeader = styled.header`
-    ${({ theme }) => theme.mixins.flexBetween};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     z-index: 11;
@@ -71,7 +73,9 @@ const StyledLinks = styled.div`
     }
 
     ol {
-        ${({ theme }) => theme.mixins.flexBetween};
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 0;
         margin: 0;
         list-style: none;
@@ -101,10 +105,6 @@ const Nav = ({ isHome }) => {
     const [scrolledToTop, setScrolledToTop] = useState(true);
     const prefersReducedMotion = usePrefersReducedMotion();
 
-    const handleScroll = () => {
-        setScrolledToTop(window.pageYOffset < 50);
-    };
-
     useEffect(() => {
         if (prefersReducedMotion) {
             return;
@@ -113,13 +113,6 @@ const Nav = ({ isHome }) => {
         const timeout = setTimeout(() => {
             setIsMounted(true);
         }, 100);
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            clearTimeout(timeout);
-            window.removeEventListener('scroll', handleScroll);
-        };
     }, []);
 
     const timeout = isHome ? loaderDelay : 0;

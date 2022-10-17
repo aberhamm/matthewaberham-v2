@@ -5,7 +5,9 @@ import { Icon } from '@components/icons';
 import { socialMedia } from '@config';
 
 const StyledFooter = styled.footer`
-    ${({ theme }) => theme.mixins.flexCenter};
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     height: auto;
     min-height: 70px;
@@ -25,7 +27,9 @@ const StyledSocialLinks = styled.div`
     }
 
     ul {
-        ${({ theme }) => theme.mixins.flexBetween};
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 0;
         margin: 0;
         list-style: none;
@@ -68,30 +72,30 @@ const StyledAnnotation = styled.div`
 `;
 
 const Footer = () => (
-  <StyledFooter>
-    <StyledSocialLinks>
-      <ul>
-        {socialMedia &&
+    <StyledFooter>
+        <StyledSocialLinks>
+            <ul>
+                {socialMedia &&
                     socialMedia.map(({ name, url }, i) => (
-                      <li key={i}>
-                        <a href={url} aria-label={name}>
-                          <Icon name={name} />
-                        </a>
-                      </li>
+                        <li key={i}>
+                            <a href={url} aria-label={name}>
+                                <Icon name={name} />
+                            </a>
+                        </li>
                     ))}
-      </ul>
-    </StyledSocialLinks>
+            </ul>
+        </StyledSocialLinks>
 
-    <StyledAnnotation tabindex="-1">
-      <a href="https://github.com/aberhamm/matthewaberham-v2">
-        <div>This site is hosted on Netlify; built using React and Gatsby.</div>
-      </a>
-    </StyledAnnotation>
-  </StyledFooter>
+        <StyledAnnotation tabindex="-1">
+            <a href="https://github.com/aberhamm/matthewaberham-v2">
+                <div>This site is hosted on Netlify; built using React and Gatsby.</div>
+            </a>
+        </StyledAnnotation>
+    </StyledFooter>
 );
 
 Footer.propTypes = {
-  githubInfo: PropTypes.object,
+    githubInfo: PropTypes.object,
 };
 
 export default Footer;

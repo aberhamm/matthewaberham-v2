@@ -5,7 +5,9 @@ import { navDelay, loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
-    ${({ theme }) => theme.mixins.flexCenter};
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     align-items: flex-start;
     min-height: 100vh;

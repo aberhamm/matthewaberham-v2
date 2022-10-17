@@ -9,7 +9,9 @@ import { Layout } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledMainContainer = styled.main`
-    ${({ theme }) => theme.mixins.flexCenter};
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     align-items: flex-start;
     min-height: 100vh;
@@ -34,50 +36,50 @@ const StyledHomeButton = styled(Link)`
 `;
 
 const NotFoundPage = ({ location }) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const prefersReducedMotion = usePrefersReducedMotion();
+    const [isMounted, setIsMounted] = useState(false);
+    const prefersReducedMotion = usePrefersReducedMotion();
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
+    useEffect(() => {
+        if (prefersReducedMotion) {
+            return;
+        }
 
-    const timeout = setTimeout(() => setIsMounted(true), navDelay);
-    return () => clearTimeout(timeout);
-  }, []);
+        const timeout = setTimeout(() => setIsMounted(true), navDelay);
+        return () => clearTimeout(timeout);
+    }, []);
 
-  const content = (
-    <StyledMainContainer className="fill-height">
-      <StyledTitle>Thank you!</StyledTitle>
-      <StyledSubtitle>
+    const content = (
+        <StyledMainContainer className="fill-height">
+            <StyledTitle>Thank you!</StyledTitle>
+            <StyledSubtitle>
                 Your request for contact has been received. I will try to reach back out within the
                 next few days.
-      </StyledSubtitle>
-      <StyledHomeButton to="/">Go Home</StyledHomeButton>
-    </StyledMainContainer>
-  );
+            </StyledSubtitle>
+            <StyledHomeButton to="/">Go Home</StyledHomeButton>
+        </StyledMainContainer>
+    );
 
-  return (
-    <Layout location={location}>
-      <Helmet title="Page Not Found" />
+    return (
+        <Layout location={location}>
+            <Helmet title="Page Not Found" />
 
-      {prefersReducedMotion ? (
-        <>{content}</>
-      ) : (
-        <TransitionGroup component={null}>
-          {isMounted && (
-            <CSSTransition timeout={500} classNames="fadeup">
-              {content}
-            </CSSTransition>
-          )}
-        </TransitionGroup>
-      )}
-    </Layout>
-  );
+            {prefersReducedMotion ? (
+                <>{content}</>
+            ) : (
+                <TransitionGroup component={null}>
+                    {isMounted && (
+                        <CSSTransition timeout={500} classNames="fadeup">
+                            {content}
+                        </CSSTransition>
+                    )}
+                </TransitionGroup>
+            )}
+        </Layout>
+    );
 };
 
 NotFoundPage.propTypes = {
-  location: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
 };
 
 export default NotFoundPage;

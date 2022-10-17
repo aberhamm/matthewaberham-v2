@@ -85,7 +85,7 @@ const Jobs = ({ jobs }) => {
                             const range = `${startDate} - ${endDate ? endDate : 'Present'}`;
 
                             return (
-                                <CSSTransition key={i} timeout={250} classNames="fade">
+                                <CSSTransition key={i} timeout={50} classNames="fade">
                                     <StyledTabPanel id={`panel-${i}`} role="tabpanel">
                                         <h3>
                                             <span>{title}</span>
