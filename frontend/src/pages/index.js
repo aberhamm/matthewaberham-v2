@@ -2,50 +2,16 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import query from '../queries/pages/index.js';
 import { Seo, Layout, Hero, About, Jobs, Contact } from '@components';
-import { getImage } from 'gatsby-plugin-image';
 
 const StyledMainContainer = styled.main`
     counter-reset: section;
 `;
 
 const IndexPage = ({ location }) => {
-    const { strapiAbout, strapiHero } = useStaticQuery(graphql`
-        query {
-            strapiAbout {
-                id
-                title
-                content {
-                    data {
-                        childMarkdownRemark {
-                            html
-                        }
-                    }
-                }
-                image {
-                    url
-                    localFile {
-                        publicURL
-                    }
-                }
-            }
-            strapiHero {
-                id
-                intro
-                heading
-                body {
-                    data {
-                        body
-                        childMarkdownRemark {
-                            html
-                            rawMarkdownBody
-                        }
-                    }
-                }
-            }
-        }
-    `);
-    console.log(strapiAbout.image.url);
+    const data = query();
+    const { allStrapiJob, strapiAbout, strapiContactSection: contact, strapiHero } = data;
     return (
         <Layout location={location}>
             <StyledMainContainer className="fill-height">
@@ -55,12 +21,16 @@ const IndexPage = ({ location }) => {
                     body={strapiHero.body.data.childMarkdownRemark.html}
                 />
                 <About
-                    content={strapiAbout.content}
+                    content={strapiAbout.content.data.childMarkdownRemark.html}
                     image={strapiAbout.image}
                     title={strapiAbout.title}
                 />
-                <Jobs />
-                <Contact />
+                <Jobs jobs={allStrapiJob.nodes} />
+                <Contact
+                    headline={contact.headline}
+                    subline={contact.subline}
+                    content={contact.content}
+                />
             </StyledMainContainer>
         </Layout>
     );

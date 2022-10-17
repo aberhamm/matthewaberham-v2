@@ -123,7 +123,7 @@ const About = ({ title, content, image }) => {
                 <StyledText>
                     <div
                         dangerouslySetInnerHTML={{
-                            __html: content.data.childMarkdownRemark.html,
+                            __html: content,
                         }}></div>
                 </StyledText>
 
@@ -133,7 +133,9 @@ const About = ({ title, content, image }) => {
                             className="img"
                             src={image.localFile.publicURL}
                             width={500}
-                            alt="Headshot"
+                            alt=""
+                            role="presentation"
+                            aria-hidden="true"
                         />
                     </div>
                 </StyledPic>

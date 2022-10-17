@@ -44,22 +44,22 @@ const StyledSocialList = styled.ul`
 `;
 
 const Social = ({ isHome }) => (
-  <Side isHome={isHome} orientation="left">
-    <StyledSocialList>
-      {socialMedia &&
+    <Side isHome={isHome} orientation="left">
+        <StyledSocialList>
+            {socialMedia &&
                 socialMedia.map(({ url, name }, i) => (
-                  <li key={i}>
-                    <a href={url} aria-label={name} target="_blank" rel="noreferrer">
-                      <Icon name={name} />
-                    </a>
-                  </li>
+                    <li key={i}>
+                        <a href={url} aria-label={name} target="_blank" rel="noreferrer">
+                            <Icon name={name} />
+                        </a>
+                    </li>
                 ))}
-    </StyledSocialList>
-  </Side>
+        </StyledSocialList>
+    </Side>
 );
 
 Social.propTypes = {
-  isHome: PropTypes.bool,
+    isHome: PropTypes.bool,
 };
 
 export default Social;

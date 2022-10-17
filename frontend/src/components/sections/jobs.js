@@ -60,77 +60,58 @@ const StyledTabPanel = styled.div`
     }
 `;
 
-const Jobs = () => {
-  const data = useStaticQuery(graphql`
-        query {
-            jobs: allMarkdownRemark(
-                filter: { fileAbsolutePath: { regex: "/content/jobs/" } }
-                sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-                edges {
-                    node {
-                        frontmatter {
-                            title
-                            company
-                            location
-                            range
-                            url
-                        }
-                        html
-                    }
-                }
-            }
+const Jobs = ({ jobs }) => {
+    const revealContainer = useRef(null);
+    const prefersReducedMotion = usePrefersReducedMotion();
+
+    useEffect(() => {
+        if (prefersReducedMotion) {
+            return;
         }
-    `);
 
-  const jobsData = data.jobs.edges;
+        scroller.reveal(revealContainer.current);
+    }, []);
 
-  const revealContainer = useRef(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
+    return (
+        <StyledJobsSection id="jobs" ref={revealContainer}>
+            <h2 className="section-heading">Where I’ve Worked</h2>
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
+            <div className="inner">
+                <StyledTabPanels>
+                    {jobs &&
+                        jobs.map((job, i) => {
+                            const { company, companyUrl, startDate, title, endDate, content } = job;
 
-    scroller.reveal(revealContainer.current);
-  }, []);
+                            const range = `${startDate} - ${endDate ? endDate : 'Present'}`;
 
-  return (
-    <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="section-heading">Where I’ve Worked</h2>
-
-      <div className="inner">
-        <StyledTabPanels>
-          {jobsData &&
-                        jobsData.map(({ node }, i) => {
-                          const { frontmatter, html } = node;
-                          const { title, url, company, range } = frontmatter;
-
-                          return (
-                            <CSSTransition key={i} timeout={250} classNames="fade">
-                              <StyledTabPanel id={`panel-${i}`} role="tabpanel">
-                                <h3>
-                                  <span>{title}</span>
-                                  <span className="company">
+                            return (
+                                <CSSTransition key={i} timeout={250} classNames="fade">
+                                    <StyledTabPanel id={`panel-${i}`} role="tabpanel">
+                                        <h3>
+                                            <span>{title}</span>
+                                            <span className="company">
                                                 &nbsp;@&nbsp;
-                                    <a href={url} className="inline-link">
-                                      {company}
-                                    </a>
-                                  </span>
-                                </h3>
+                                                <a href={companyUrl} className="inline-link">
+                                                    {company}
+                                                </a>
+                                            </span>
+                                        </h3>
 
-                                <p className="range">{range}</p>
+                                        <p className="range">{range}</p>
 
-                                <div dangerouslySetInnerHTML={{ __html: html }} />
-                              </StyledTabPanel>
-                            </CSSTransition>
-                          );
+                                        <div
+                                            dangerouslySetInnerHTML={{
+                                                __html: content.data.childMarkdownRemark.html,
+                                            }}
+                                        />
+                                    </StyledTabPanel>
+                                </CSSTransition>
+                            );
                         })}
-        </StyledTabPanels>
-      </div>
-    </StyledJobsSection>
-  );
+                </StyledTabPanels>
+            </div>
+        </StyledJobsSection>
+    );
 };
 
 export default Jobs;

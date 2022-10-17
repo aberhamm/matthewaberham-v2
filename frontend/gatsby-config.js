@@ -1,5 +1,4 @@
 const config = require('./src/config');
-const strapiSchema = require('./strapi-schema.js');
 require('dotenv').config({
     path: `.env`,
 });
@@ -91,7 +90,55 @@ module.exports = {
             options: {
                 apiURL: process.env.STRAPI_API_URL || 'http://localhost:1337',
                 accessToken: process.env.STRAPI_TOKEN,
-                ...strapiSchema,
+                skipFileDownloads: true,
+                collectionTypes: [
+                    {
+                        singularName: 'job',
+                    },
+                ],
+                singleTypes: [
+                    {
+                        singularName: 'about',
+                        queryParams: {
+                            populate: {
+                                title: '*',
+                                content: '*',
+                                image: '*',
+                            },
+                        },
+                    },
+                    {
+                        singularName: 'contact-section',
+                        queryParams: {
+                            populate: {
+                                headline: '*',
+                                subline: '*',
+                                content: '*',
+                            },
+                        },
+                    },
+                    {
+                        singularName: 'global',
+                        queryParams: {
+                            populate: {
+                                favicon: '*',
+                                defaultSeo: {
+                                    populate: '*',
+                                },
+                            },
+                        },
+                    },
+                    {
+                        singularName: 'hero',
+                        queryParams: {
+                            populate: {
+                                intro: '*',
+                                heading: '*',
+                                body: '*',
+                            },
+                        },
+                    },
+                ],
             },
         },
     ],
