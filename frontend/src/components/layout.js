@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { Seo, Nav, Social, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
+import query from '../queries/components/layout.js';
 
 const StyledContent = styled.div`
     display: flex;
@@ -11,6 +12,8 @@ const StyledContent = styled.div`
 `;
 
 const Layout = ({ children, location, pageName }) => {
+    const data = query();
+    const { strapiFooter } = data;
     const isHome = location.pathname === '/';
 
     // Sets target="_blank" rel="noopener noreferrer" on external links
@@ -59,7 +62,10 @@ const Layout = ({ children, location, pageName }) => {
 
                         <div id="content">
                             {children}
-                            <Footer />
+                            <Footer
+                                attribution={strapiFooter.attribution}
+                                link={strapiFooter.link}
+                            />
                         </div>
                     </StyledContent>
                 </ThemeProvider>

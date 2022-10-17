@@ -118,6 +118,19 @@ module.exports = {
                         },
                     },
                     {
+                        singularName: 'footer',
+                    },
+                    {
+                        singularName: 'primary-navigation',
+                        queryParams: {
+                            populate: {
+                                navigationItems: {
+                                    populate: '*',
+                                },
+                            },
+                        },
+                    },
+                    {
                         singularName: 'global',
                         queryParams: {
                             populate: {
