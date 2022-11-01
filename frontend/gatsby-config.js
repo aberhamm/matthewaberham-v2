@@ -13,8 +13,8 @@ module.exports = {
         twitterUsername: '@aberhamm',
     },
     plugins: [
+        `gatsby-plugin-netlify`,
         `gatsby-plugin-preload-fonts`,
-        // https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-styled-components`,
         `gatsby-plugin-image`,

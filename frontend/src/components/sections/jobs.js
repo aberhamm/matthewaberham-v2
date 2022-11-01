@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import scroller from '@utils/scroller.js';
@@ -9,10 +8,10 @@ const StyledJobsSection = styled.section`
     max-width: 900px;
 
     .inner {
-        display: flex;
+        display: block;
 
-        @media (max-width: 600px) {
-            display: block;
+        @media (min-width: 600px) {
+            display: flex;
         }
 
         // Prevent container from jumping
