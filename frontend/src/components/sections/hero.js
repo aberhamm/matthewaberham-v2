@@ -56,7 +56,7 @@ const Hero = ({ intro, heading, body }) => {
 
     const nodes = [
         <h1 key="0">{intro}</h1>,
-        <h3 key="0" className="big-heading">
+        <h3 key="0" className="heading-lg">
             {heading}
         </h3>,
         <>
