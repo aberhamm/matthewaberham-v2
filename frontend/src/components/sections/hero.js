@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
-import { navDelay, loaderDelay } from '@utils';
+import { ANIMATION } from '@utils/constants.js';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
@@ -39,11 +39,6 @@ const StyledHeroSection = styled.section`
         margin: 20px 0 0;
         max-width: 540px;
     }
-
-    .email-link {
-        ${({ theme }) => theme.mixins.bigButton};
-        margin-top: 50px;
-    }
 `;
 
 const Hero = ({ intro, heading, body }) => {
@@ -55,7 +50,7 @@ const Hero = ({ intro, heading, body }) => {
             return;
         }
 
-        const timeout = setTimeout(() => setIsMounted(true), navDelay);
+        const timeout = setTimeout(() => setIsMounted(true), ANIMATION.NAV_DELAY);
         return () => clearTimeout(timeout);
     }, []);
 
@@ -84,7 +79,10 @@ const Hero = ({ intro, heading, body }) => {
                 <TransitionGroup component={null}>
                     {isMounted &&
                         nodes.map((item, i) => (
-                            <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
+                            <CSSTransition
+                                key={i}
+                                classNames="fadeup"
+                                timeout={ANIMATION.LOADER_DELAY}>
                                 <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
                             </CSSTransition>
                         ))}

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
-import scroller from '@utils/scroller';
+import scroller from '@utils/scroller.js';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import scroller from '@utils/scroller';
+import scroller from '@utils/scroller.js';
 import { navigate } from 'gatsby-link';
-import { encode } from '@utils';
+import { encode } from '@utils/helpers.js';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledContactSection = styled.section`

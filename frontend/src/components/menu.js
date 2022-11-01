@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { navLinks } from '@config';
-import { KEY_CODES } from '@utils';
+import { KEY_CODES } from '@utils/constants.js';
 import { useOnClickOutside } from '@hooks';
 
 const StyledMenu = styled.div`

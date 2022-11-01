@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled, { css } from 'styled-components';
 import { navLinks } from '@config';
-import { loaderDelay } from '@utils';
+import { ANIMATION } from '@utils/constants.js';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
 
@@ -115,7 +115,7 @@ const Nav = ({ isHome }) => {
         }, 100);
     }, []);
 
-    const timeout = isHome ? loaderDelay : 0;
+    const timeout = isHome ? ANIMATION.LOADER_DELAY : 0;
     const fadeClass = isHome ? 'fade' : '';
     const fadeDownClass = isHome ? 'fadedown' : '';
 
