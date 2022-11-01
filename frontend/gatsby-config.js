@@ -94,6 +94,17 @@ module.exports = {
                 collectionTypes: [
                     {
                         singularName: 'job',
+                        queryParams: {
+                            populate: {
+                                title: '*',
+                                company: '*',
+                                start_date: '*',
+                                company_url: '*',
+                                end_date: '*',
+                                content: '*',
+                                location: '*',
+                            },
+                        },
                     },
                 ],
                 singleTypes: [
