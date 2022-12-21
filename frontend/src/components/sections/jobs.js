@@ -100,9 +100,8 @@ const Jobs = ({ jobs }) => {
 
                                         <div
                                             dangerouslySetInnerHTML={{
-                                                __html: content.data
-                                                    ? content.data.childMarkdownRemark.html
-                                                    : '',
+                                                __html:
+                                                    content?.data?.childMarkdownRemark.html || '',
                                             }}
                                         />
                                     </StyledTabPanel>
