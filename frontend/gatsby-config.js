@@ -46,14 +46,6 @@ module.exports = {
             },
         },
         {
-            // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-filesystem
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                name: 'content',
-                path: `${__dirname}/content/`,
-            },
-        },
-        {
             // Parses MDX files
             resolve: `gatsby-transformer-remark`,
             options: {
