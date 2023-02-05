@@ -1,13 +1,3 @@
-# Project dependencies
-.cache
-node_modules
-yarn-error.log
-package-lock.json
-/backend
-/frontend
-
-# Build directory
-/public
-.DS_Store
-
+.husky
 .vscode/
+node_modules

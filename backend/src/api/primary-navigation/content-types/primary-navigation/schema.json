@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "primary_navigations",
+  "info": {
+    "singularName": "primary-navigation",
+    "pluralName": "primary-navigations",
+    "displayName": "Primary Navigation"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "navigationItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.navigation-link",
+      "required": false
+    }
+  }
+}
