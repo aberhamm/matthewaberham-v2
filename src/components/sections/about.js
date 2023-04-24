@@ -132,12 +132,13 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
-            <p>Hello, my name is Matt!</p>
             <p>
-                            I'm a solutions architect and full-stack developer with a specialization
-                            in front-end technologies. I'm focused on architecting efficient,
-                            accessible, and intuitive web applications that are built on
-                            technologies like{' '}
+                            I'm currently a solutions architect and full-stack developer with a focus
+                            on front-end technologies. For those not in the industry, basically... I make websites. 
+                            Web development is an iterative process, so I'm consistently working to make applications
+                            that are more efficient, fully accessible, and provide an intuitive experience to the user.
+                            While I've developed with many frameworks and languages, these days I'm using technologies 
+                            like:{' '}
               <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
                                 React
               </a>{' '}
