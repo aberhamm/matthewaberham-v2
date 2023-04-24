@@ -10,7 +10,6 @@ module.exports = {
     twitterUsername: '@aberhamm',
   },
   plugins: [
-    `gatsby-plugin-preload-fonts`,
     // https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -76,6 +75,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {
+          '/fonts/*': [
+            'Cache-Control: public',
+            'Cache-Control: max-age=365000000',
+            'Cache-Control: immutable',
+          ],
+        },
+      },
+    },    
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
