@@ -82,7 +82,7 @@ const Footer = () => (
       </ul>
     </StyledSocialLinks>
 
-    <StyledAnnotation tabindex="-1">
+    <StyledAnnotation tabIndex="-1">
       <a href="https://github.com/aberhamm/matthewaberham-v2">
         <div>This site is hosted on Netlify; built using React and Gatsby.</div>
       </a>

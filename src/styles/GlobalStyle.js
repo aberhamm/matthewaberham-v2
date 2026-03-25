@@ -273,7 +273,8 @@ const GlobalStyle = createGlobalStyle`
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
     &:focus {
-      outline: 0;
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
     }
     &:focus,
     &:active {

@@ -242,6 +242,7 @@ const Menu = () => {
           menuOpen={menuOpen}
           ref={buttonRef}
           aria-label="Menu"
+          aria-expanded={menuOpen}
         >
           <div className="ham-box">
             <div className="ham-box-inner" />
@@ -251,7 +252,7 @@ const Menu = () => {
         <StyledSidebar
           menuOpen={menuOpen}
           aria-hidden={!menuOpen}
-          tabIndex={menuOpen ? 1 : -1}
+          tabIndex={menuOpen ? 0 : -1}
         >
           <nav ref={navRef}>
             {navLinks && (

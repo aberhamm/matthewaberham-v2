@@ -116,21 +116,21 @@ const Contact = () => {
           <label>
                         Your name:
             <br />
-            <input type="text" name="name" onChange={handleChange} />
+            <input type="text" name="name" required onChange={handleChange} />
           </label>
         </p>
         <p>
           <label>
                         Your email:
             <br />
-            <input type="email" name="email" onChange={handleChange} />
+            <input type="email" name="email" required onChange={handleChange} />
           </label>
         </p>
         <p>
           <label>
                         Message:
             <br />
-            <textarea name="message" onChange={handleChange} />
+            <textarea name="message" required onChange={handleChange} />
           </label>
         </p>
         <p>

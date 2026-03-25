@@ -101,14 +101,21 @@ const Nav = ({ isHome }) => {
     const [scrolledToTop, setScrolledToTop] = useState(true);
     const prefersReducedMotion = usePrefersReducedMotion();
 
-    const handleScroll = () => {
-        setScrolledToTop(window.pageYOffset < 50);
-    };
-
     useEffect(() => {
         if (prefersReducedMotion) {
             return;
         }
+
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setScrolledToTop(window.pageYOffset < 50);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
 
         const timeout = setTimeout(() => {
             setIsMounted(true);
