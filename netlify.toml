@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "yarn build"
   publish = "public"
   node_bundler = "esbuild"
 
@@ -7,6 +7,9 @@
   NODE_VERSION = "18.14.1"
   NPM_VERSION = "9.6.7"
 
+# Declaring plugins here with pinned versions to override outdated
+# UI-installed versions. If duplicates cause issues, remove these
+# plugins from the Netlify UI (Site settings > Build & deploy > Plugins).
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 
