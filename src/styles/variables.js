@@ -39,7 +39,7 @@ const variables = css`
         --size-font-md: 1rem;
         --size-font-lg: 1.125rem;
         --size-font-xl: 1.25rem;
-        --size-font-xxl: 1.375;
+        --size-font-xxl: 1.375rem;
         --size-font-heading: 2rem;
 
         --navy-shadow: rgba(2, 12, 27, 0.7);

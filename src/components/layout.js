@@ -39,7 +39,7 @@ const Layout = ({ children, location }) => {
     }
 
     handleExternalLinks();
-  });
+  }, []);
 
   return (
     <>

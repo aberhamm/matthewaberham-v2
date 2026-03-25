@@ -58,8 +58,8 @@ const Hero = () => {
   }, []);
 
   const nodes = [
-    <h1 key="0">Hi, I'm Matt.</h1>,
-    <h3 key="0" className="big-heading">
+    <h1 key="hero-greeting">Hi, I'm Matt.</h1>,
+    <h3 key="hero-heading" className="big-heading">
             Basically... I make websites.
     </h3>,
     <>
