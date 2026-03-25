@@ -1,7 +1,14 @@
 [build]
   command = "npm run build"
   publish = "public"
+  node_bundler = "esbuild"
 
 [build.environment]
   NODE_VERSION = "18.14.1"
   NPM_VERSION = "9.6.7"
+
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
