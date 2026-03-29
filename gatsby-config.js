@@ -69,7 +69,6 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
-              tracedSVG: { color: config.colors.blue },
             },
           },
         ],
@@ -87,11 +86,14 @@ module.exports = {
         },
       },
     },    
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-45547052-2',
-      },
-    },
+    // TODO: Replace with your GA4 measurement ID (format: G-XXXXXXXXXX)
+    // gatsby-plugin-google-analytics used deprecated Universal Analytics (UA-) which was sunset July 2023
+    // Install gatsby-plugin-google-gtag and add your GA4 ID to re-enable analytics
+    // {
+    //   resolve: `gatsby-plugin-google-gtag`,
+    //   options: {
+    //     trackingIds: ['G-XXXXXXXXXX'],
+    //   },
+    // },
   ],
 };
