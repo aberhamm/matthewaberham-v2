@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Icon } from '@components/icons';
-import { socialMedia } from '@config';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { Icon } from "@components/icons";
+import { socialMedia } from "@config";
 
 const StyledFooter = styled.footer`
     ${({ theme }) => theme.mixins.flexCenter};
@@ -16,12 +16,12 @@ const StyledFooter = styled.footer`
 const StyledSocialLinks = styled.div`
     display: none;
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
         display: block;
         width: 100%;
         max-width: 270px;
         margin: 0 auto 10px;
-        color: var(--light-slate);
+        color: var(--color-slate-04);
     }
 
     ul {
@@ -32,6 +32,7 @@ const StyledSocialLinks = styled.div`
 
         a {
             padding: 10px;
+
             svg {
                 width: 20px;
                 height: 20px;
@@ -41,9 +42,9 @@ const StyledSocialLinks = styled.div`
 `;
 
 const StyledAnnotation = styled.div`
-    color: var(--light-slate);
+    color: var(--color-slate-04);
     font-family: var(--font-mono);
-    font-size: var(--size-font-xxs);
+    font-size: var(--size-font-size-01);
     line-height: 1;
 
     a {
@@ -58,6 +59,7 @@ const StyledAnnotation = styled.div`
             align-items: center;
             margin: 0 7px;
         }
+
         svg {
             display: inline-block;
             margin-right: 5px;
@@ -68,30 +70,33 @@ const StyledAnnotation = styled.div`
 `;
 
 const Footer = () => (
-  <StyledFooter>
-    <StyledSocialLinks>
-      <ul>
-        {socialMedia &&
+    <StyledFooter>
+        <StyledSocialLinks>
+            <ul>
+                {socialMedia &&
                     socialMedia.map(({ name, url }, i) => (
-                      <li key={i}>
-                        <a href={url} aria-label={name}>
-                          <Icon name={name} />
-                        </a>
-                      </li>
+                        <li key={i}>
+                            <a href={url} aria-label={name}>
+                                <Icon name={name} />
+                            </a>
+                        </li>
                     ))}
-      </ul>
-    </StyledSocialLinks>
+            </ul>
+        </StyledSocialLinks>
 
-    <StyledAnnotation tabindex="-1">
-      <a href="https://github.com/aberhamm/matthewaberham-v2">
-        <div>This site is hosted on Netlify; built using React and Gatsby.</div>
-      </a>
-    </StyledAnnotation>
-  </StyledFooter>
+        <StyledAnnotation tabindex='-1'>
+            <a href='https://github.com/aberhamm/matthewaberham-v2'>
+                <div>
+                    This site is hosted on Netlify; built using React and
+                    Gatsby.
+                </div>
+            </a>
+        </StyledAnnotation>
+    </StyledFooter>
 );
 
 Footer.propTypes = {
-  githubInfo: PropTypes.object,
+    githubInfo: PropTypes.object,
 };
 
 export default Footer;

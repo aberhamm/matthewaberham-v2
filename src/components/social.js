@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { socialMedia } from '@config';
-import { Side } from '@components';
-import { Icon } from '@components/icons';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { socialMedia } from "@config";
+import { Side } from "@components";
+import { Icon } from "@components/icons";
 
 const StyledSocialList = styled.ul`
     display: flex;
@@ -13,13 +13,13 @@ const StyledSocialList = styled.ul`
     padding: 0;
     list-style: none;
 
-    &:after {
-        content: '';
+    &::after {
+        content: "";
         display: block;
         width: 1px;
         height: 90px;
         margin: 0 auto;
-        background-color: var(--light-slate);
+        background-color: var(--color-slate-04);
     }
 
     li {
@@ -44,22 +44,27 @@ const StyledSocialList = styled.ul`
 `;
 
 const Social = ({ isHome }) => (
-  <Side isHome={isHome} orientation="left">
-    <StyledSocialList>
-      {socialMedia &&
+    <Side isHome={isHome} orientation='left'>
+        <StyledSocialList>
+            {socialMedia &&
                 socialMedia.map(({ url, name }, i) => (
-                  <li key={i}>
-                    <a href={url} aria-label={name} target="_blank" rel="noreferrer">
-                      <Icon name={name} />
-                    </a>
-                  </li>
+                    <li key={i}>
+                        <a
+                            href={url}
+                            aria-label={name}
+                            target='_blank'
+                            rel='noreferrer'
+                        >
+                            <Icon name={name} />
+                        </a>
+                    </li>
                 ))}
-    </StyledSocialList>
-  </Side>
+        </StyledSocialList>
+    </Side>
 );
 
 Social.propTypes = {
-  isHome: PropTypes.bool,
+    isHome: PropTypes.bool,
 };
 
 export default Social;

@@ -1,11 +1,11 @@
-import { css } from 'styled-components';
+import { css } from "styled-components";
 
 const button = css`
     color: var(--color-button);
     background-color: transparent;
     border: 1px solid var(--color-button);
     border-radius: var(--size-border-radius);
-    font-size: var(--size-font-xs);
+    font-size: var(--size-font-size-02);
     font-family: var(--font-mono);
     line-height: 1;
     text-decoration: none;
@@ -20,7 +20,8 @@ const button = css`
         color: var(--color-button-hover);
         outline: none;
     }
-    &:after {
+
+    &::after {
         display: none !important;
     }
 `;
@@ -45,6 +46,7 @@ const mixins = {
         color: inherit;
         position: relative;
         transition: var(--transition);
+
         &:hover,
         &:active,
         &:focus {
@@ -60,21 +62,25 @@ const mixins = {
         position: relative;
         transition: var(--transition);
         color: var(--color-link);
+
         &:hover,
         &:focus,
         &:active {
             color: var(--color-link);
             outline: 0;
-            &:after {
+
+            &::after {
                 width: 100%;
             }
+
             & > * {
                 color: var(--color-link) !important;
                 transition: var(--transition);
             }
         }
-        &:after {
-            content: '';
+
+        &::after {
+            content: "";
             display: block;
             width: 0;
             height: 1px;
@@ -94,12 +100,13 @@ const mixins = {
         border: 1px solid var(--color-button);
         border-radius: var(--size-border-radius);
         padding: 0.75rem 1rem;
-        font-size: var(--size-font-xs);
+        font-size: var(--size-font-size-02);
         font-family: var(--font-mono);
         line-height: 1;
         text-decoration: none;
         cursor: pointer;
         transition: var(--transition);
+
         &:hover,
         &:focus,
         &:active {
@@ -107,7 +114,8 @@ const mixins = {
             color: var(--color-button-hover);
             outline: none;
         }
-        &:after {
+
+        &::after {
             display: none !important;
         }
     `,
@@ -118,12 +126,13 @@ const mixins = {
         border: 1px solid var(--color-button);
         border-radius: var(--size-border-radius);
         padding: 1.25rem 1.75rem;
-        font-size: var(--size-font-sm);
+        font-size: var(--size-font-size-03);
         font-family: var(--font-mono);
         line-height: 1;
         text-decoration: none;
         cursor: pointer;
         transition: var(--transition);
+
         &:hover,
         &:focus,
         &:active {
@@ -131,7 +140,8 @@ const mixins = {
             color: var(--color-button-hover);
             outline: none;
         }
-        &:after {
+
+        &::after {
             display: none !important;
         }
     `,
@@ -150,13 +160,15 @@ const mixins = {
         padding: 0;
         margin: 0;
         list-style: none;
-        font-size: var(--size-font-lg);
+        font-size: var(--size-font-size-05);
+
         li {
             position: relative;
             padding-left: 30px;
             margin-bottom: 10px;
-            &:before {
-                content: '▹';
+
+            &::before {
+                content: "▹";
                 position: absolute;
                 left: 0;
                 color: var(--color-link);

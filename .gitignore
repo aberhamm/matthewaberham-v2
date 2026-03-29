@@ -1,13 +1,48 @@
 # Project dependencies
 .cache
 node_modules
-yarn-error.log
 package-lock.json
 /backend
 /frontend
 
 # Build directory
 /public
-.DS_Store
 
+# Gatsby generated files
+font-preload-cache.json
+.cache/
+public/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.staging
+
+# Logs
+*.log
+yarn-debug.log*
+yarn-error.log
+npm-debug.log*
+lerna-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# Netlify
+.netlify/
+
+# Editor directories and files
 .vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

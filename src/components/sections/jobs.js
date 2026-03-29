@@ -1,20 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { CSSTransition } from 'react-transition-group';
-import styled from 'styled-components';
-import scroller from '@utils/scroller';
-import { usePrefersReducedMotion } from '@hooks';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { CSSTransition } from "react-transition-group";
+import styled from "styled-components";
 
 const StyledJobsSection = styled.section`
     max-width: 700px;
 
     .inner {
-        display: flex;
-
-        @media (max-width: 600px) {
-            display: block;
-        }
-
         // Prevent container from jumping
         @media (min-width: 700px) {
             min-height: 340px;
@@ -25,10 +17,10 @@ const StyledJobsSection = styled.section`
 const StyledTabPanels = styled.div`
     position: relative;
     width: 100%;
-    margin-left: 20px;
+    margin-left: 0;
 
-    @media (max-width: 600px) {
-        margin-left: 0;
+    @media (min-width: 600px) {
+        margin-left: 20px;
     }
 `;
 
@@ -43,7 +35,7 @@ const StyledTabPanel = styled.div`
 
     h3 {
         margin-bottom: 2px;
-        font-size: var(--size-font-xxl);
+        font-size: var(--size-font-size-07);
         font-weight: 500;
         line-height: 1.3;
 
@@ -54,14 +46,14 @@ const StyledTabPanel = styled.div`
 
     .range {
         margin-bottom: 25px;
-        color: var(--light-slate);
+        color: var(--color-slate-04);
         font-family: var(--font-mono);
-        font-size: var(--size-font-xs);
+        font-size: var(--size-font-size-02);
     }
 `;
 
 const Jobs = () => {
-  const data = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
         query {
             jobs: allMarkdownRemark(
                 filter: { fileAbsolutePath: { regex: "/content/jobs/" } }
@@ -83,54 +75,57 @@ const Jobs = () => {
         }
     `);
 
-  const jobsData = data.jobs.edges;
+    const jobsData = data.jobs.edges;
 
-  const revealContainer = useRef(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
+    return (
+        <StyledJobsSection id='jobs'>
+            <h2 className='section-heading'>Where I’ve Worked</h2>
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    scroller.reveal(revealContainer.current);
-  }, []);
-
-  return (
-    <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="section-heading">Where I’ve Worked</h2>
-
-      <div className="inner">
-        <StyledTabPanels>
-          {jobsData &&
+            <div className='inner'>
+                <StyledTabPanels>
+                    {jobsData &&
                         jobsData.map(({ node }, i) => {
-                          const { frontmatter, html } = node;
-                          const { title, url, company, range } = frontmatter;
+                            const { frontmatter, html } = node;
+                            const { title, url, company, range } = frontmatter;
 
-                          return (
-                            <CSSTransition key={i} timeout={250} classNames="fade">
-                              <StyledTabPanel id={`panel-${i}`} role="tabpanel">
-                                <h3>
-                                  <span>{title}</span>
-                                  <span className="company">
+                            return (
+                                <CSSTransition
+                                    key={i}
+                                    timeout={250}
+                                    classNames='fade'
+                                >
+                                    <StyledTabPanel
+                                        id={`panel-${i}`}
+                                        role='tabpanel'
+                                    >
+                                        <h3>
+                                            <span>{title}</span>
+                                            <span className='company'>
                                                 &nbsp;@&nbsp;
-                                    <a href={url} className="inline-link">
-                                      {company}
-                                    </a>
-                                  </span>
-                                </h3>
+                                                <a
+                                                    href={url}
+                                                    className='inline-link'
+                                                >
+                                                    {company}
+                                                </a>
+                                            </span>
+                                        </h3>
 
-                                <p className="range">{range}</p>
+                                        <p className='range'>{range}</p>
 
-                                <div dangerouslySetInnerHTML={{ __html: html }} />
-                              </StyledTabPanel>
-                            </CSSTransition>
-                          );
+                                        <div
+                                            dangerouslySetInnerHTML={{
+                                                __html: html,
+                                            }}
+                                        />
+                                    </StyledTabPanel>
+                                </CSSTransition>
+                            );
                         })}
-        </StyledTabPanels>
-      </div>
-    </StyledJobsSection>
-  );
+                </StyledTabPanels>
+            </div>
+        </StyledJobsSection>
+    );
 };
 
 export default Jobs;
